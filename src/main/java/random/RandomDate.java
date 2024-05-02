@@ -1,13 +1,17 @@
 package random;
 
-import javax.swing.text.DateFormatter;
-import java.text.DateFormat;
-import java.util.Date;
+import java.util.Random;
 
 public class RandomDate {
 
-    public static Date getRandomDate(String start, String finish) {
-        Date date = new Date();
+    private final String date;
+
+    public RandomDate() {
+        this.date = getRandomDate();
+    }
+
+    private String getRandomDate() {
+
         return date;
     }
 }
