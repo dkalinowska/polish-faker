@@ -1,7 +1,6 @@
-package random;
+package numbers;
 
 import java.time.Year;
-import java.util.Date;
 import java.util.Random;
 import java.util.regex.Pattern;
 

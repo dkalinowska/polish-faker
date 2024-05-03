@@ -1,6 +1,4 @@
-package random;
-
-import java.util.Random;
+package numbers;
 
 public class RandomDate {
 
