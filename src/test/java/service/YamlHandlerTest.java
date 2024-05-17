@@ -1,18 +1,26 @@
 package service;
 
-import org.junit.Test;
-import org.yaml.snakeyaml.Yaml;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
-import java.io.InputStream;
+import java.util.Map;
 
 public class YamlHandlerTest {
 
-    private final Yaml yaml = new Yaml();
-    private final YamlHandler yamlHandler = new YamlHandler(yaml);
-    private final static String CORRECT_FILE = "test.yaml";
+    private final YamlHandler yamlHandler = new YamlHandler();
+
+    private final static String CORRECT_FILE = "testing/test.yaml";
+    private final static String NESTED_FILE = "testing/list.yaml";
 
     @Test
     public void testGetYamlAsMap() {
-        yamlHandler.getYamlAsMap(CORRECT_FILE);
+        Map<String, Object> map = yamlHandler.getYamlAsMap(CORRECT_FILE);
+        System.out.println(map);
+    }
+
+    @Test
+    public void testGetListForGivenKey() {
+        System.out.println(yamlHandler.getListForGivenKey(NESTED_FILE, "a", "b", "c"));
     }
 }
