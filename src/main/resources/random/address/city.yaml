@@ -1,3 +1,8 @@
+################
+# List of popular Polish cities divided by voivodeships
+# Source: https://www.cypis.net/blog/posts/baza-miast-z-podzialem-na-wojewodztwa
+################
+
 random:
   address:
     city:

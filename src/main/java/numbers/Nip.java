@@ -12,15 +12,16 @@ public class Nip {
     private static final int[] CONTROL_SUM_WEIGHTS = {6, 5, 7, 2, 3, 4, 5, 6, 7};
 
     public Nip() {
-        this.nip = getRandomNip();
+        this.nip = generateNip();
     }
 
-    private String getRandomNip() {
+    private String generateNip() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < NIP_LENGTH - 1; i++) {
             stringBuilder.append(nextDigit());
         }
-        return nip;
+        stringBuilder.append(calculateControlSum(stringBuilder.toString()));
+        return null;
     }
 
     private String calculateControlSum(String nip) {
