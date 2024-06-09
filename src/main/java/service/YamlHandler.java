@@ -1,10 +1,9 @@
 package service;
 
+import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -12,39 +11,63 @@ public class YamlHandler {
 
     private final Yaml yaml;
 
-    public YamlHandler(Yaml yaml) {
-        this.yaml = yaml;
+    YamlHandler() {
+        LoaderOptions loaderOptions = new LoaderOptions();
+        loaderOptions.setAllowDuplicateKeys(false);
+        this.yaml = new Yaml(loaderOptions);
     }
 
-    public List<String> handleYaml(String fileName, String... keys) {
-        Map<String, Object> yamlMap = getMap(fileName);
-        if (yamlMap == null) {
-            throw new IllegalArgumentException(String.format("File '%s' does not exist", fileName));
-        }
-        for (String key : keys) {
-            Object value = yamlMap.get(key);
+    public List<String> getListForGivenKey(String filePath, String key) {
+        Map<String, Object> map = getYamlAsMap(filePath);
+        return findListForKey(map, key);
+    }
+
+    private List<String> findListForKey(Map<String, Object> map, String key) {
+        if (map == null)
+            throw new IllegalArgumentException("The provided map cannot be null");
+        if (key == null || key.isEmpty())
+            throw new IllegalArgumentException("The provided key cannot be null or empty");
+
+        return findListRecursive(map, key);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static List<String> findListRecursive(Map<String, Object> map, String key) throws IllegalArgumentException {
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            Object value = entry.getValue();
+
+            if (key.equals(entry.getKey())) {
+                if (!(value instanceof List<?> list))
+                    throw new IllegalArgumentException("The value associated with the key is not a List");
+                if (list.isEmpty())
+                    throw new IllegalArgumentException("The list associated with the key is empty");
+                if (list.getFirst() instanceof String)
+                    return (List<String>) list;
+                return list.stream().map(Object::toString).toList();
+            }
+
             if (value instanceof Map<?, ?>) {
-                yamlMap = (Map<String, Object>) value;
-            } else {
-                throw new IllegalArgumentException(String.format("Key '%s' does not exist", key));
+                List<String> result = findListRecursive((Map<String, Object>) value, key);
+                if (result != null) {
+                    return result;
+                }
             }
         }
-        if (yamlMap.values().stream().allMatch(val -> val instanceof String)) {
-            return yamlMap.values().stream()
-                    .map(Object::toString)
-                    .collect(ArrayList::new, Collection::add, Collection::addAll);
-        } else {
-            throw new IllegalArgumentException("The final object is not a list of strings");
-        }
+        return null;
     }
 
-    public Map<String, Object> getMap(String fileName) {
-        InputStream inputStream = this.getClass()
-                .getClassLoader()
-                .getResourceAsStream(fileName);
-        if (inputStream == null) {
-            return null;
-        }
+    Map<String, Object> getYamlAsMap(String filePath) {
+        verifyFileIsYaml(filePath);
+        InputStream inputStream;
+        inputStream = this.getClass().getClassLoader().getResourceAsStream(filePath);
+        if (inputStream == null)
+            throw new IllegalArgumentException(String.format("Failed to load file '%s'.", filePath));
         return yaml.load(inputStream);
+    }
+
+    private void verifyFileIsYaml(String filePath) {
+        if (!(filePath.endsWith(".yaml") || filePath.endsWith(".yml")))
+            throw new IllegalArgumentException(String.format("Path '%s' doesn't lead to a yaml file.\n" +
+                    "Please provide a path to a valid yaml file.", filePath));
     }
 }
