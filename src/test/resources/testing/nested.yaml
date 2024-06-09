@@ -1,3 +1,4 @@
 top:
   mid:
     bottom: [42, 41, 40, 2]
+    bottom2: [22, 20]

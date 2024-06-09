@@ -1,8 +1,8 @@
-package numbers;
+package random.id;
 
 import java.util.Random;
 
-import static util.NumberUtil.nextDigit;
+import static util.RandomUtil.randomDigit;
 
 public class PersonalId {
 
@@ -34,7 +34,7 @@ public class PersonalId {
     private String getNumbers() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < 5; i++) {
-            stringBuilder.append(nextDigit());
+            stringBuilder.append(randomDigit());
         }
         return stringBuilder.toString();
     }

@@ -1,4 +1,4 @@
-package numbers;
+package random.id;
 
 public class Passport {
 }

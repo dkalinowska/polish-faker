@@ -1,36 +1,59 @@
 package service;
 
+import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class YamlHandler {
 
     private final Yaml yaml;
 
-    public YamlHandler() {
-        this.yaml = new Yaml();
+    YamlHandler() {
+        LoaderOptions loaderOptions = new LoaderOptions();
+        loaderOptions.setAllowDuplicateKeys(false);
+        this.yaml = new Yaml(loaderOptions);
+    }
+
+    public List<String> getListForGivenKey(String filePath, String key) {
+        Map<String, Object> map = getYamlAsMap(filePath);
+        return findListForKey(map, key);
+    }
+
+    private List<String> findListForKey(Map<String, Object> map, String key) {
+        if (map == null)
+            throw new IllegalArgumentException("The provided map cannot be null");
+        if (key == null || key.isEmpty())
+            throw new IllegalArgumentException("The provided key cannot be null or empty");
+
+        return findListRecursive(map, key);
     }
 
     @SuppressWarnings("unchecked")
-    List<String> getListForGivenKey(String filePath, String... keys) {
-        Map<String, Object> map = getYamlAsMap(filePath);
-        for (String key : keys) {
-            Object value = map.get(key);
-            switch (value) {
-                case Map<?, ?> _ -> map = (Map<String, Object>) value;
-                case List<?> objects -> {
-                    return objects.stream().map(Object::toString).collect(Collectors.toList());
+    private static List<String> findListRecursive(Map<String, Object> map, String key) throws IllegalArgumentException {
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            Object value = entry.getValue();
+
+            if (key.equals(entry.getKey())) {
+                if (!(value instanceof List<?> list))
+                    throw new IllegalArgumentException("The value associated with the key is not a List");
+                if (list.isEmpty())
+                    throw new IllegalArgumentException("The list associated with the key is empty");
+                if (list.getFirst() instanceof String)
+                    return (List<String>) list;
+                return list.stream().map(Object::toString).toList();
+            }
+
+            if (value instanceof Map<?, ?>) {
+                List<String> result = findListRecursive((Map<String, Object>) value, key);
+                if (result != null) {
+                    return result;
                 }
-                case null -> throw new IllegalArgumentException(String.format("Key '%s' does not exist.", key));
-                default ->
-                        throw new IllegalArgumentException(String.format("Key '%s' leads to value '%s' which is not a list.", key, value));
             }
         }
-        throw new IllegalArgumentException("The final object is not a list");
+        return null;
     }
 
     Map<String, Object> getYamlAsMap(String filePath) {
@@ -42,7 +65,7 @@ public class YamlHandler {
         return yaml.load(inputStream);
     }
 
-    private static void verifyFileIsYaml(String filePath) {
+    private void verifyFileIsYaml(String filePath) {
         if (!(filePath.endsWith(".yaml") || filePath.endsWith(".yml")))
             throw new IllegalArgumentException(String.format("Path '%s' doesn't lead to a yaml file.\n" +
                     "Please provide a path to a valid yaml file.", filePath));
