@@ -5,7 +5,7 @@ import util.Key;
 import java.util.List;
 import java.util.Random;
 
-public class RandomValueExtractor {
+public class Randomizer {
 
     private final static YamlHandler yamlHandler = new YamlHandler();
     private final static Random random = new Random();

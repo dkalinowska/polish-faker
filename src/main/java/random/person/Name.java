@@ -10,7 +10,7 @@ import static random.person.Name.NameKey.FEMALE_LAST_NAME;
 import static random.person.Name.NameKey.MALE_FIRST_NAME;
 import static random.person.Name.NameKey.MALE_FUNNY;
 import static random.person.Name.NameKey.MALE_LAST_NAME;
-import static service.RandomValueExtractor.getRandomValue;
+import static service.Randomizer.getRandomValue;
 import static util.RandomUtil.randomBoolean;
 
 /**
@@ -19,11 +19,6 @@ import static util.RandomUtil.randomBoolean;
 public class Name {
 
     private static final String PATH = "person/name.yaml";
-
-    public static void main(String[] args) {
-        Name name = new Name();
-        System.out.println(name.firstName().random());
-    }
 
     /**
      * Class for generating random first names

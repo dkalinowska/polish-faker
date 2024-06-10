@@ -1,15 +1,15 @@
 package service;
 
-import random.address.Address;
 import random.address.City;
 import random.address.Country;
+import random.address.County;
+import random.address.PostalCode;
 import random.address.Street;
 import random.address.Voivodeship;
-import random.id.Iban;
+import random.date.Date;
 import random.id.Krs;
 import random.id.MortgageRegister;
 import random.id.Nip;
-import random.id.Passport;
 import random.id.PersonalId;
 import random.id.Pesel;
 import random.id.Regon;
@@ -17,52 +17,89 @@ import random.person.Email;
 import random.person.Name;
 import random.person.Phone;
 
+/**
+ * Faker is a class of which you should create an instance in your project in order to generate random data.
+ */
 public class Faker {
 
-    private final Iban iban = new Iban();
     private final Krs krs = new Krs();
     private final MortgageRegister mortgageRegister = new MortgageRegister();
     private final Nip nip = new Nip();
-    private final Passport passport = new Passport();
     private final PersonalId personalId = new PersonalId();
     private final Pesel pesel = new Pesel();
     private final Regon regon = new Regon();
-    private final Address address = new Address();
+    private final Date date = new Date();
     private final Street street = new Street();
+    private final PostalCode postalCode = new PostalCode();
     private final City city = new City();
+    private final County county = new County();
     private final Voivodeship voivodeship = new Voivodeship();
     private final Country country = new Country();
     private final Name name = new Name();
     private final Email email = new Email();
     private final Phone phone = new Phone();
 
-    public Iban iban() {
-        return iban;
-    }
-
     public Krs krs() {
         return krs;
+    }
+
+    public MortgageRegister mortgageRegister() {
+        return mortgageRegister;
     }
 
     public Nip nip() {
         return nip;
     }
 
-    public Passport passport() {
-        return passport;
-    }
-
     public PersonalId personalId() {
         return personalId;
+    }
+
+    public Pesel pesel() {
+        return pesel;
     }
 
     public Regon regon() {
         return regon;
     }
 
+    public Date date() {
+        return date;
+    }
+
+    public Street street() {
+        return street;
+    }
+
+    public PostalCode postalCode() {
+        return postalCode;
+    }
+
+    public City city() {
+        return city;
+    }
+
+    public County county() {
+        return county;
+    }
+
+    public Voivodeship voivodeship() {
+        return voivodeship;
+    }
+
+    public Country country() {
+        return country;
+    }
+
     public Name name() {
         return name;
     }
 
+    public Email email() {
+        return email;
+    }
 
+    public Phone phone() {
+        return phone;
+    }
 }

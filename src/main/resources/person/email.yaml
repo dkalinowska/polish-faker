@@ -1,0 +1,4 @@
+person:
+  email:
+    tld: [ "com", "net", "org", "info", "biz", "pl", "xyz", "online", "io", "test", "tst" ]
+    sld: [ "gmail", "pw.edu", "google", "yahoo", "microsoft", "amazon", "onet", "wp", "o2", "tlen", "interia", "test", "poczta", "vp", "proton", "mail", "outlook" ]

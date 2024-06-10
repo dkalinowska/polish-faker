@@ -10,8 +10,12 @@ import static random.person.Sex.MALE;
 import static util.RandomUtil.randomNumber;
 import static util.RandomUtil.randomSex;
 
+/**
+ * Class for generating random PESEL numbers
+ */
 public class Pesel {
 
+    private final Date randomDate = new Date();
     private static final int[] WEIGHTS = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
 
     /**
@@ -37,7 +41,7 @@ public class Pesel {
 
     private String getRandomPesel(Sex sex) {
         StringBuilder pesel = new StringBuilder();
-        LocalDate date = Date.randomDate();
+        LocalDate date = randomDate.randomDate();
 
         pesel.append(String.format("%02d", date.getYear() % 100));
         pesel.append(getMonth(date));

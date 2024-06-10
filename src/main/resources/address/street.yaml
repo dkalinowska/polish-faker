@@ -1,6 +1,7 @@
 ################
 # List of popular Polish street names
 # Source: https://pl.wikipedia.org/wiki/Kategoria:Ulice_polskich_miast
+# Date: 10-06-2024
 ################
 
 address:
@@ -8,7 +9,7 @@ address:
     surname: [ Mickiewicza, Słowackiego, Żeromskiego, Chopina, Curie-Skłodowskiej, Rejtana, Kochanowskiego, Kopernika, Krasińskiego, Piłsudskiego, Sienkiewicza, Kwiatkowskiego, Pułaskiego, Kościuszki, Konopnickiej, Prusa, Żółkiewskiego, Cieszkowskiego, Piotra Skargi, Ignacego Łukasiewicza, Norwida, Orzeszkowej, Reymonta, Iwaszkiewicza, Asnyka, Broniewskiego, Baczyńskiego, Tuwima, Gombrowicza ]
     adjective: [ Długa, Krótka, Wysoka, Szeroka, Cicha, Zielona, Czerwonego Krzyża, Biała, Stara, Jasna, Górna, Nowa, Świetlista, Spokojna, Średnia, Piękna ]
     fairytale: [ Kubusia Puchatka, Czerwonego Kapturka, Małego Księcia, Koziołka Matołka, Smoka Wawelskiego, Królewny Śnieżki, Kopciuszka, Smerfów, Jasia i Małgosi, Piotrusia Pana, Ali Baby, Śpiącej Królewny ]
-    historical: [ 11 Listopada, 3 Maja, Solidarności, Powstania Warszawskiego, Grudnia '70, Konstytucji 3 Maja, Bitwy pod Grunwaldem, Rewolucji Październikowej, 1 Maja, Bitwy pod Waterloo, Bitwy pod Chocimiem, Pokoju Wersalskiego ]
-    geographical: [ Górska, Nadbrzeżna, Morska, Leśna, Jeziorna, Wyspiańska, Wrzosowa, Nadwiślańska, Rybacka, Pustynna, Alpejska, Bałtycka ]
+    history: [ 11 Listopada, 3 Maja, Solidarności, Powstania Warszawskiego, Grudnia '70, Konstytucji 3 Maja, Bitwy pod Grunwaldem, Rewolucji Październikowej, 1 Maja, Bitwy pod Waterloo, Bitwy pod Chocimiem, Pokoju Wersalskiego ]
+    geography: [ Górska, Nadbrzeżna, Morska, Leśna, Jeziorna, Wyspiańska, Wrzosowa, Nadwiślańska, Rybacka, Pustynna, Alpejska, Bałtycka ]
     place: [ Ogrodowa, Krzyżowa, Lipowa, Parkowa, Rynek, Cmentarna, Główna, Szkolna, Lotnicza, Kolejowa, Kosmiczna ]
     nature: [ Kwiatowa, Liliowa, Łąkowa, Lawendowa, Dębowy Las, Świerkowa, Jastrzębia, Wilcza, Lisia, Niedźwiedzia, Orla, Żbika, Bobrowa, Sokoła, Jeżowa, Żurawia, Łabędzia, Łosia, Wiewiórcza, Zajęcza, Mrówcza, Psia, Kocia, Słowicza ]

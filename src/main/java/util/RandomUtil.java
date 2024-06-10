@@ -15,6 +15,13 @@ public class RandomUtil {
         return random.nextInt(0, 10);
     }
 
+    public static String randomDigit(int count) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < count; i++)
+            stringBuilder.append(randomDigit());
+        return stringBuilder.toString();
+    }
+
     public static int randomNumber(int max) {
         return random.nextInt(0, max);
     }

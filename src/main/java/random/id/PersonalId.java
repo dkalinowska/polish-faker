@@ -1,55 +1,43 @@
 package random.id;
 
-import java.util.Random;
+import java.util.HashMap;
+import java.util.Map;
 
+import static util.RandomUtil.randomCapitalLetter;
 import static util.RandomUtil.randomDigit;
 
+/**
+ * Class which generates random personal identification numbers.
+ */
 public class PersonalId {
 
-    private final String personalId;
-    private final Random random = new Random();
-    private final int[] controlSumWeights = {7, 3, 1, 7, 3, 1, 7, 3};
+    private static final int[] WEIGHTS = {7, 3, 1, 7, 3, 1, 7, 3};
+    private static final Map<Character, Integer> CHAR_VALUE_MAP = getCharacterValueMap();
 
-    public PersonalId() {
-        this.personalId = generatePersonalId();
+    /**
+     * @return random personal identification number.
+     */
+    public String random() {
+        return personalId();
     }
 
-    public String personalId() {
-        return personalId;
+    private String personalId() {
+        String id = randomCapitalLetter(3) + randomDigit(5);
+        return id.substring(0, 3) + calculateCheckSum(id) + id.substring(3);
     }
 
-    private String generatePersonalId() {
-        String personalId = getPersonalIdWithoutChecksum();
-        return personalId.substring(0, 3) + calculateCheckSum(personalId) + personalId.substring(3);
-    }
-
-    private String getLetters() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < 3; i++) {
-            stringBuilder.append((char) random.nextInt(65, 91));
-        }
-        return stringBuilder.toString();
-    }
-
-    private String getNumbers() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < 5; i++) {
-            stringBuilder.append(randomDigit());
-        }
-        return stringBuilder.toString();
-    }
-
-    private String getPersonalIdWithoutChecksum() {
-        return getLetters() + getNumbers();
-    }
-
-    private String calculateCheckSum(String personalId) {
-        String id = getPersonalIdWithoutChecksum();
+    private String calculateCheckSum(String id) {
         int sum = 0;
-        for (int i = 0; i < id.length(); i++) {
-            sum += controlSumWeights[i] * Integer.parseInt(String.valueOf(id.charAt(i)));
+        for (int i = 0; i < id.length(); i++)
+            sum += WEIGHTS[i] * CHAR_VALUE_MAP.get(id.charAt(i));
+        return String.valueOf(sum % 10);
+    }
+
+    private static Map<Character, Integer> getCharacterValueMap() {
+        Map<Character, Integer> map = new HashMap<>();
+        for (char ch = '0'; ch <= 'Z'; ch++) {
+            map.put(ch, ch <= '9' ? ch - '0' : ch - 'A' + 10);
         }
-        int checkSum = sum % 11;
-        return checkSum == 10 ? "0" : String.valueOf(checkSum);
+        return map;
     }
 }

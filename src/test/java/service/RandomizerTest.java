@@ -3,9 +3,9 @@ package service;
 import org.junit.jupiter.api.Test;
 
 import static random.person.Name.NameKey.FEMALE_FIRST_NAME;
-import static service.RandomValueExtractor.getRandomValue;
+import static service.Randomizer.getRandomValue;
 
-public class RandomValueExtractorTest {
+public class RandomizerTest {
 
     @Test
     void testGetRandomValue() {

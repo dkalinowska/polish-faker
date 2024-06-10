@@ -4,21 +4,39 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import util.Key;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static random.id.MortgageRegister.CourtKey.COURT;
-import static service.RandomValueExtractor.getRandomValue;
+import static service.Randomizer.getRandomValue;
 import static util.RandomUtil.randomNumber;
 
+/**
+ * This class generated random Polish mortgage register numbers.
+ */
 public class MortgageRegister {
 
     private static final String COURT_PATH = "id/court.yaml";
     private static final int[] WEIGHTS = {1, 3, 7, 1, 3, 7, 1, 3, 7, 1, 3, 7};
+    private static final Map<Character, Integer> CHAR_VALUE_MAP = getCharacterValueMap();
+
+    @Getter
+    @AllArgsConstructor
+    enum CourtKey implements Key {
+
+        COURT("court");
+
+        private final String key;
+    }
 
     /**
      * @return Polish mortgage register number for a random court
      */
-    public static String generateMortgageRegisterNumber() {
+    public String random() {
+        return generateMortgageRegisterNumber();
+    }
+
+    private String generateMortgageRegisterNumber() {
         StringBuilder mortgageRegisterNumber = new StringBuilder();
         mortgageRegisterNumber.append(getCourtCode());
         mortgageRegisterNumber.append(String.format("%08d", randomNumber(100000000)));
@@ -32,68 +50,23 @@ public class MortgageRegister {
     }
 
     private static String calculateCheckSum(String mortgageRegisterNumber) {
-        Integer[] characterValues = getCharacterValues(mortgageRegisterNumber);
         int sum = 0;
-        for (int i = 0; i < characterValues.length; i++)
-            sum += WEIGHTS[i] * characterValues[i];
+        for (int i = 0; i < mortgageRegisterNumber.length(); i++)
+            sum += WEIGHTS[i] * CHAR_VALUE_MAP.get(mortgageRegisterNumber.charAt(i));
         return String.valueOf(sum % 10);
     }
 
-    private static Integer[] getCharacterValues(String mortgageRegisterNumber) {
-        Map<Character, Integer> map = getCharacterValueMap();
-        Integer[] characterValues = new Integer[12];
-
-        for (int i = 0; i < mortgageRegisterNumber.length(); i++)
-            characterValues[i] = map.get(mortgageRegisterNumber.charAt(i));
-
-        return characterValues;
-    }
-
     private static Map<Character, Integer> getCharacterValueMap() {
-        return Map.ofEntries(
-                Map.entry('0', 0),
-                Map.entry('1', 1),
-                Map.entry('2', 2),
-                Map.entry('3', 3),
-                Map.entry('4', 4),
-                Map.entry('5', 5),
-                Map.entry('6', 6),
-                Map.entry('7', 7),
-                Map.entry('8', 8),
-                Map.entry('9', 9),
-                Map.entry('X', 10),
-                Map.entry('A', 11),
-                Map.entry('B', 12),
-                Map.entry('C', 13),
-                Map.entry('D', 14),
-                Map.entry('E', 15),
-                Map.entry('F', 16),
-                Map.entry('G', 17),
-                Map.entry('H', 18),
-                Map.entry('I', 19),
-                Map.entry('J', 20),
-                Map.entry('K', 21),
-                Map.entry('L', 22),
-                Map.entry('M', 23),
-                Map.entry('N', 24),
-                Map.entry('O', 25),
-                Map.entry('P', 26),
-                Map.entry('R', 27),
-                Map.entry('S', 28),
-                Map.entry('T', 29),
-                Map.entry('U', 30),
-                Map.entry('W', 31),
-                Map.entry('Y', 32),
-                Map.entry('Z', 33)
-        );
-    }
-
-    @Getter
-    @AllArgsConstructor
-    enum CourtKey implements Key {
-
-        COURT("court");
-
-        private final String key;
+        Map<Character, Integer> map = new HashMap<>();
+        for (char ch = '0'; ch <= '9'; ch++) {
+            map.put(ch, ch - '0');
+        }
+        map.put('X', 10);
+        for (char ch = 'A'; ch <= 'W'; ch++) {
+            map.put(ch, ch - 'A' + 11);
+        }
+        map.put('Y', 32);
+        map.put('Z', 33);
+        return map;
     }
 }

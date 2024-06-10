@@ -4,15 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import util.Key;
 
-import static service.RandomValueExtractor.getRandomValue;
+import static random.address.Voivodeship.VoivodeshipKey.VOIVODESHIP;
+import static service.Randomizer.getRandomValue;
 
+/**
+ * This class provides a method which returns a random Polish voivodeship.
+ */
 public class Voivodeship {
 
     private final static String PATH = "random/address/voivodeship.yaml";
-
-    public String name() {
-        return getRandomValue(PATH, VoivodeshipKey.VOIVODESHIP);
-    }
 
     @Getter
     @AllArgsConstructor
@@ -21,5 +21,12 @@ public class Voivodeship {
         VOIVODESHIP("voivodeship");
 
         private final String key;
+    }
+
+    /**
+     * @return random Polish voivodeship
+     */
+    public String random() {
+        return getRandomValue(PATH, VOIVODESHIP);
     }
 }

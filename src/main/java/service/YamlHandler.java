@@ -7,6 +7,10 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * YamlHandler is a class that allows
+ * to read yaml files and extract data from them.
+ */
 public class YamlHandler {
 
     private final Yaml yaml;
@@ -17,6 +21,11 @@ public class YamlHandler {
         this.yaml = new Yaml(loaderOptions);
     }
 
+    /**
+     * @param filePath path to the yaml file
+     * @param key      key for which the list of strings should be returned
+     * @return a list of strings for a given key from a yaml file
+     */
     public List<String> getListForGivenKey(String filePath, String key) {
         Map<String, Object> map = getYamlAsMap(filePath);
         return findListForKey(map, key);

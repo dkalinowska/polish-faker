@@ -8,6 +8,14 @@
     <artifactId>polish-faker</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>Fake Polish Data Generator</name>
+            <url>https://maven.pkg.github.com/dkalinowska/polish-faker</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
         <maven.compiler.target>22</maven.compiler.target>

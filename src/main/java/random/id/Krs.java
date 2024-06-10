@@ -7,9 +7,9 @@ public class Krs {
 
     private static final int[] WEIGHTS = {6, 5, 7, 2, 3, 4, 5, 6, 7};
 
-    public String generateKrs() {
+    public String random() {
         StringBuilder krs = new StringBuilder();
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 9; i++)
             krs.append(randomDigit());
         return krs + simpleCheckSum(krs.toString(), WEIGHTS);
     }

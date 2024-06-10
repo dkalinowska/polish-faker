@@ -8,9 +8,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static service.Randomizer.getRandomValue;
 import static random.date.Date.DateKey.DAY;
 import static random.date.Date.DateKey.MONTH;
-import static service.RandomValueExtractor.getRandomValue;
 
 public class Date {
 
@@ -19,37 +19,14 @@ public class Date {
     private static final String END_DATE = eighteenYearsAgo();
     private static final String PATH = "date/date.yaml";
 
-    /**
-     * Default setting useful for generating dates of birth
-     * @return random LocalDate in dd-MM-yyyy format between 01-01-1900 and 18 years ago
-     */
-    public static LocalDate randomDate() {
-        return randomDate(START_DATE, END_DATE, DD_MM_YYYY);
-    }
+    @Getter
+    @AllArgsConstructor
+    enum DateKey implements Key {
 
-    /**
-     * @param start start date in dd-MM-yyyy format
-     * @param end end date in dd-MM-yyyy format
-     * @return random LocalDate in dd-MM-yyyy format between given start and end dates
-     */
-    public static LocalDate randomDate(String start, String end) {
-        return randomDate(start, end, DD_MM_YYYY);
-    }
+        DAY("day"),
+        MONTH("month");
 
-    /**
-     * @param start date in given format
-     * @param end date in given format
-     * @param format of dates
-     * @return random LocalDate in given format between start and end
-     */
-    public static LocalDate randomDate(String start, String end, String format) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
-        LocalDate startDate = LocalDate.parse(start, formatter);
-        LocalDate endDate = LocalDate.parse(end, formatter);
-        long startEpochDay = startDate.toEpochDay();
-        long endEpochDay = endDate.toEpochDay();
-        long randomDay = ThreadLocalRandom.current().nextLong(startEpochDay, endEpochDay);
-        return LocalDate.ofEpochDay(randomDay);
+        private final String key;
     }
 
     /**
@@ -66,17 +43,30 @@ public class Date {
         return getRandomValue(PATH, MONTH);
     }
 
-    private static String eighteenYearsAgo() {
-        return LocalDate.now().minusYears(18).format(DateTimeFormatter.ofPattern(DD_MM_YYYY));
+    /**
+     * Default setting useful for generating dates of birth
+     * @return random LocalDate in dd-MM-yyyy format between 01-01-1900 and 18 years ago
+     */
+    public LocalDate randomDate() {
+        return randomDate(START_DATE, END_DATE);
     }
 
-    @Getter
-    @AllArgsConstructor
-    enum DateKey implements Key {
+    /**
+     * @param start start date in dd-MM-yyyy format
+     * @param end end date in dd-MM-yyyy format
+     * @return random LocalDate in dd-MM-yyyy format between given start and end dates
+     */
+    public LocalDate randomDate(String start, String end) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DD_MM_YYYY);
+        LocalDate startDate = LocalDate.parse(start, formatter);
+        LocalDate endDate = LocalDate.parse(end, formatter);
+        long startEpochDay = startDate.toEpochDay();
+        long endEpochDay = endDate.toEpochDay();
+        long randomDay = ThreadLocalRandom.current().nextLong(startEpochDay, endEpochDay);
+        return LocalDate.ofEpochDay(randomDay);
+    }
 
-        DAY("day"),
-        MONTH("month");
-
-        private final String key;
+    private static String eighteenYearsAgo() {
+        return LocalDate.now().minusYears(18).format(DateTimeFormatter.ofPattern(DD_MM_YYYY));
     }
 }

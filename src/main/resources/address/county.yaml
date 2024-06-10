@@ -1,0 +1,24 @@
+################
+# List of Polish counties divided by voivodeships
+# Source: https://www.gov.pl/web/mswia/baza-jst
+# Date: 10-06-2024
+################
+
+address:
+  county:
+    dolnośląskie: [ bolesławiecki, dzierżoniowski, głogowski, górowski, jaworski, Jelenia Góra, kamiennogórski, karkonoski, kłodzki, Legnica, legnicki, lubański, lubiński, lwówecki, milicki, oleśnicki, oławski, polkowicki, strzeliński, średzki, świdnicki, trzebnicki, Wałbrzych, wałbrzyski, wołowski, Wrocław, wrocławski, ząbkowicki, zgorzelecki, złotoryjski ]
+    kujawsko-pomorskie: [ aleksandrowski, brodnicki, bydgoski, Bydgoszcz, chełmiński, golubsko-dobrzyński, Grudziądz, grudziądzki, inowrocławski, lipnowski, mogileński, nakielski, radziejowski, rypiński, sępoleński, świecki, Toruń, toruński, tucholski, wąbrzeski, Włocławek, włocławski, żniński ]
+    lubelskie: [ bialski, Biała Podlaska, biłgorajski, Chełm, chełmski, hrubieszowski, janowski, krasnostawski, kraśnicki, lubartowski, lubelski, Lublin, łęczyński, łukowski, opolski, parczewski, puławski, radzyński, rycki, świdnicki, tomaszowski, włodawski, zamojski, Zamość ]
+    lubuskie: [ gorzowski, Gorzów Wielkopolski, krośnieński, międzyrzecki, nowosolski, słubicki, strzelecko-drezdenecki, sulęciński, świebodziński, wschowski, Zielona Góra, zielonogórski, żagański, żarski ]
+    łódzkie: [ bełchatowski, brzeziński, kutnowski, łaski, łęczycki, łowicki, łódzki wschodni, Łódź, opoczyński, pabianicki, pajęczański, piotrkowski, Piotrków Trybunalski, poddębicki, radomszczański, rawski, sieradzki, Skierniewice, skierniewicki, tomaszowski, wieluński, wieruszowski, zduńskowolski, zgierski ]
+    małopolskie: [ bocheński, brzeski, chrzanowski, Dąbrowski, gorlicki, Krakowski, Kraków, limanowski, miechowski, myślenicki, nowosądecki, nowotarski, Nowy Sącz, olkuski, oświęcimski, proszowicki, suski, tarnowski, Tarnów, tatrzański, wadowicki, Wielicki ]
+    mazowieckie: [ białobrzeski, ciechanowski, garwoliński, gostyniński, grodziski, grójecki, kozienicki, legionowski, lipski, łosicki, makowski, miński, mławski, nowodworski, ostrołęcki, Ostrołęka, ostrowski, otwocki, piaseczyński, Płock, płocki, płoński, pruszkowski, przasnyski, przysuski, pułtuski, Radom, radomski, Siedlce, siedlecki, sierpecki, sochaczewski, sokołowski, szydłowiecki, Warszawa, warszawski zachodni, węgrowski, wołomiński, wyszkowski, zwoleński, żuromiński, żyrardowski ]
+    opolskie: [ brzeski, głubczycki, kędzierzyńsko-kozielski, kluczborski, krapkowicki, namysłowski, nyski, oleski, Opole, opolski, prudnicki, strzelecki ]
+    podkarpackie: [ bieszczadzki, brzozowski, dębicki, jarosławski, jasielski, kolbuszowski, Krosno, krośnieński, leski, leżajski, lubaczowski, łańcucki, mielecki, niżański, przemyski, Przemyśl, przeworski, ropczycko-sędziszowski, rzeszowski, Rzeszów, sanocki, stalowowolski, strzyżowski, Tarnobrzeg, tarnobrzeski ]
+    podlaskie: [ augustowski, białostocki, Białystok, bielski, grajewski, hajnowski, kolneński, Łomża, łomżyński, moniecki, sejneński, siemiatycki, sokólski, suwalski, Suwałki, wysokomazowiecki, zambrowski ]
+    pomorskie: [ bytowski, chojnicki, człuchowski, Gdańsk, gdański, Gdynia, kartuski, kościerski, kwidzyński, lęborski, malborski, nowodworski, pucki, Słupsk, słupski, Sopot, starogardzki, sztumski, tczewski, wejherowski ]
+    śląskie: [ będziński, bielski, Bielsko-Biała, bieruńsko-lędziński, Bytom, Chorzów, cieszyński, Częstochowa, częstochowski, Dąbrowa Górnicza, Gliwice, gliwicki, Jastrzębie-Zdrój, Jaworzno, Katowice, kłobucki, lubliniecki, mikołowski, Mysłowice, myszkowski, Piekary Śląskie, pszczyński, raciborski, Ruda Śląska, rybnicki, Rybnik, Siemianowice Śląskie, Sosnowiec, Świętochłowice, tarnogórski, Tychy, wodzisławski, Zabrze, zawierciański, Żory, żywiecki ]
+    świętokrzyskie: [ buski, jędrzejowski, kazimierski, Kielce, kielecki, konecki, opatowski, ostrowiecki, pińczowski, sandomierski, skarżyski, starachowicki, staszowski, włoszczowski ]
+    warmińsko-mazurskie: [ bartoszycki, braniewski, działdowski, Elbląg, elbląski, ełcki, giżycki, gołdapski, iławski, kętrzyński, lidzbarski, mrągowski, nidzicki, nowomiejski, olecki, Olsztyn, olsztyński, ostródzki, piski, szczycieński, węgorzewski ]
+    wielkopolskie: [ chodzieski, czarnkowsko-trzcianecki, gnieźnieński, gostyński, grodziski, jarociński, kaliski, Kalisz, kępiński, kolski, Konin, koniński, kościański, krotoszyński, leszczyński, Leszno, międzychodzki, nowotomyski, obornicki, ostrowski, ostrzeszowski, pilski, pleszewski, Poznań, poznański, rawicki, słupecki, szamotulski, średzki, śremski, turecki, wągrowiecki, wolsztyński, wrzesiński, złotowski ]
+    zachodniopomorskie: [ białogardzki, choszczeński, drawski, goleniowski, gryficki, gryfiński, kamieński, kołobrzeski, Koszalin, koszaliński, łobeski, myśliborski, policki, pyrzycki, sławieński, stargardzki, Szczecin, szczecinecki, świdwiński, Świnoujście, wałecki ]
