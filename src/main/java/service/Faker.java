@@ -16,11 +16,18 @@ import random.id.Regon;
 import random.person.Email;
 import random.person.Name;
 import random.person.Phone;
+import random.word.Animal;
+import random.word.Food;
+import random.word.Plant;
 
 /**
  * Faker is a class of which you should create an instance in your project in order to generate random data.
  */
 public class Faker {
+
+    private static volatile Faker instance;
+
+    private Faker() {}
 
     private final Krs krs = new Krs();
     private final MortgageRegister mortgageRegister = new MortgageRegister();
@@ -38,6 +45,23 @@ public class Faker {
     private final Name name = new Name();
     private final Email email = new Email();
     private final Phone phone = new Phone();
+    private final Animal animal = new Animal();
+    private final Food food = new Food();
+    private final Plant plant = new Plant();
+
+    /**
+     * @return instance of Faker class.
+     */
+    public static Faker getInstance() {
+        if (instance == null) {
+            synchronized (Faker.class) {
+                if (instance == null) {
+                    instance = new Faker();
+                }
+            }
+        }
+        return instance;
+    }
 
     public Krs krs() {
         return krs;
@@ -101,5 +125,17 @@ public class Faker {
 
     public Phone phone() {
         return phone;
+    }
+
+    public Animal animal() {
+        return animal;
+    }
+
+    public Food food() {
+        return food;
+    }
+
+    public Plant plant() {
+        return plant;
     }
 }

@@ -8,9 +8,9 @@ import java.util.Random;
 
 import static random.address.Country.CountryKey.AFRICA;
 import static random.address.Country.CountryKey.ASIA;
-import static random.address.Country.CountryKey.AUSTRALIA;
 import static random.address.Country.CountryKey.EUROPE;
 import static random.address.Country.CountryKey.NORTH_AMERICA;
+import static random.address.Country.CountryKey.OCEANIA;
 import static random.address.Country.CountryKey.SOUTH_AMERICA;
 import static service.Randomizer.getRandomValue;
 
@@ -31,7 +31,7 @@ public class Country {
         AFRICA("africa"),
         NORTH_AMERICA("north_america"),
         SOUTH_AMERICA("south_america"),
-        AUSTRALIA("australia");
+        OCEANIA("oceania");
 
         private final String key;
     }
@@ -50,14 +50,14 @@ public class Country {
         return new CountyFromContinent();
     }
 
-    private String getRandomCountry(Key key) {
+    private static String getRandomCountry(Key key) {
         return getRandomValue(PATH, key);
     }
 
     /**
      * This class provides methods for generating random country names from specified continents.
      */
-    public class CountyFromContinent {
+    public static class CountyFromContinent {
 
         /**
          * @return random country from Europe.
@@ -97,8 +97,8 @@ public class Country {
         /**
          * @return random country from Australia.
          */
-        public String australia() {
-            return getRandomCountry(AUSTRALIA);
+        public String oceania() {
+            return getRandomCountry(OCEANIA);
         }
     }
 }

@@ -1,0 +1,13 @@
+word:
+  food:
+    fruit: [ jabłko, banan, pomarańcza, truskawka, gruszka, śliwka, malina, borówka, winogrono, kiwi, ananas, arbuz, brzoskwinia, mango, wiśnia, morela, granat, cytryna, grejpfrut, awokado ]
+    vegetable: [ pomidor, ogórek, marchew, ziemniak, papryka, cebula, czosnek, brokuł, kalafior, kapusta, szpinak, sałata, burak, rzodkiewka, dynia, cukinia, bakłażan, seler, por, groszek ]
+    grain: [ pszenica, ryż, owies, jęczmień, kukurydza, żyto, quinoa, kasza gryczana, kasza jaglana, amarantus, komosa ryżowa, proso, sorgo, gryka, orkisz, kasza kuskus, kasza bulgur, teff, dziki ryż, fonio ]
+    meat: [ kurczak, wołowina, wieprzowina, baranina, cielęcina, indyk, kaczka, gęś, królik, dziczyzna, jagnięcina, wędliny, szynka, boczek, kiełbasa, salami, baleron, pasztet, wątróbka, ozór ]
+    seafood: [ łosoś, tuńczyk, dorsz, makrela, krewetki, małże, ostrygi, kalmary, ośmiornica, homar, krab, sardynki, śledź, sola, morszczuk, pstrąg, okoń, langusta, karmazyn, anchovies ]
+    dairy: [ mleko, ser, jogurt, masło, kefir, śmietana, twaróg, ser feta, ser gouda, ser brie, ser mozzarella, ser cheddar, ser camembert, maślanka, lody, serek wiejski, ser topiony, ser pleśniowy, ser ricotta, ser mascarpone ]
+    beverage: [ woda, herbata, kawa, sok pomarańczowy, sok jabłkowy, wino, piwo, mleko, lemoniada, koktajl, koktajl owocowy, kakao, smoothie, cola, napój energetyczny, wódka, whisky, rum, gin, tonik ]
+    sweet: [ czekolada, cukierki, ciastka, lody, tort, babeczki, pączki, ciasto, deser, galaretka, budyń, praliny, batony, muffinki, sernik, eklerki, kremówki, wafle, naleśniki, brownie, tiramisu ]
+    spice: [ sól, pieprz, czosnek, cynamon, gałka muszkatołowa, imbir, kminek, kolendra, kardamon, kurkuma, papryka, chili, majeranek, tymianek, rozmaryn, estragon, anyż, goździki, wanilia, szafran ]
+    condiment: [ keczup, musztarda, majonez, sos sojowy, sos barbecue, chrzan, ocet, oliwa, masło orzechowe, miód, syrop klonowy, sos czosnkowy, sos pomidorowy, sos śmietanowy, sos curry, sos teriyaki, sos, tzatziki, sos tysiąca wysp ]
+    dish: [ pizza, spaghetti, pierogi, gołąbki, bigos, schabowy, kotlet, zupa, sałatka, omlet, naleśniki, placki, krokiety, paszteciki, zapiekanka, risotto, curry, sushi, sashimi, ramen ]

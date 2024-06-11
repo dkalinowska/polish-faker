@@ -17,7 +17,7 @@ import static util.RandomUtil.randomNumber;
  */
 public class Email {
 
-    private final Name name = new Name();
+    private final Name nameGenerator = new Name();
     private static final String PATH = "person/email.yaml";
 
     @Getter
@@ -31,33 +31,38 @@ public class Email {
     }
 
     /**
+     * @return email address based on given
+     */
+    public String basedOnName(String name) {
+        return getRandomEmail(name);
+    }
+
+    /**
      * @return random email address
      */
-    public String random() {
-        return getRandomEmail();
+    public String random() { return getRandomEmail(nameGenerator.funnyName().random()); }
+
+    private String getRandomEmail(String name) {
+        return getLocalPart(name) + "@" + getDomain();
     }
 
-    private String getRandomEmail() {
-        return getRandomLocalPart() + "@" + getRandomDomain();
-    }
-
-    private String getRandomLocalPart() {
-        return removePolish(name.funnyName().random())
+    private String getLocalPart(String name) {
+        return removePolish(name)
                 .replace(" ", ".")
                 .toLowerCase()
                 + "."
                 + randomNumber(1000);
     }
 
-    private String getRandomDomain() {
-        return getRandomSld() + "." + getRandomTld();
+    private String getDomain() {
+        return getSecondLevelDomain() + "." + getTopLevelDomain();
     }
 
-    private String getRandomTld() {
+    private String getTopLevelDomain() {
         return (randomBoolean() ? getRandomValue(PATH, TLD) + "." : "") + getRandomValue(PATH, TLD);
     }
 
-    private String getRandomSld() {
+    private String getSecondLevelDomain() {
         return getRandomValue(PATH, SLD);
     }
 

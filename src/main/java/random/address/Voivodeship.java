@@ -12,7 +12,7 @@ import static service.Randomizer.getRandomValue;
  */
 public class Voivodeship {
 
-    private final static String PATH = "random/address/voivodeship.yaml";
+    private final static String PATH = "address/voivodeship.yaml";
 
     @Getter
     @AllArgsConstructor
