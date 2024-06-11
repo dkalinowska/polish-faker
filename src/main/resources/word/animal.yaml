@@ -1,0 +1,9 @@
+word:
+  animal:
+    mammal: [ lew, tygrys, słoń, pies, kot, krowa, koń, owca, świnia, koza, nietoperz, delfin, foka, jeleń, żubr, kangur, chomik, królik, małpa, szop, wiewiórka ]
+    bird: [ wróbel, gołąb, orzeł, sokół, papuga, sowa, struś, pingwin, bocian, kaczka, łabędź, kanarek, dzięcioł, jaskółka, sroka, mewa, kormoran, rybitwa, gawron, czapla ]
+    reptile: [ krokodyl, żółw, jaszczurka, wąż, kameleon, iguana, gekon, anakonda, boa, pyton, zaskroniec, legwan, wąż koralowy, waran, bazyliszek, smok komodo, żmija, kobry, aligator ]
+    amphibian: [ żaba, ropucha, salamandra, traszka, aksolotl, rzekotka, kumak, goryczka, padalec, żółw błotny, żaba szponiasta ]
+    fish: [ łosoś, tuńczyk, rekin, dorsz, makrela, pstrąg, karp, sum, okoń, węgorz, sardynka, szczupak, płotka, śledź, flądra, błazenek, miecznik, pstrąg tęczowy, ryba piła, rekin młot ]
+    insect: [ motyl, pszczoła, osa, komar, mucha, biedronka, mrówka, karaluch, konik polny, świerszcz, chrabąszcz, termit, modliszka, ważka, stonka, szerszeń, trzmiel, kornik, wołek zbożowy ]
+    mollusk: [ ośmiornica, kalmar, małż, ślimak, mątwa, ostryg, kałamarnica, przegrzebek, wstężyk, głowonóg, perłopław, muszla, kałamarz, wężynka, sepia ]

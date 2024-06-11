@@ -42,14 +42,14 @@ public class City {
         return new CityFromVoivodeship();
     }
 
-    private String getRandomCity(Key key) {
+    private static String getRandomCity(Key key) {
         return getRandomValue(PATH, key);
     }
 
     /**
      * This class provides methods for generating random city names from Polish voivodeships.
      */
-    public class CityFromVoivodeship {
+    public static class CityFromVoivodeship {
 
         /**
          * @return random city name from dolnośląskie voivodeship.

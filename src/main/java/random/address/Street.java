@@ -50,11 +50,11 @@ public class Street {
         return new StreetBasedOn();
     }
 
-    private String getRandomStreet(Key key) {
+    private static String getRandomStreet(Key key) {
         return getRandomValue(PATH, key);
     }
 
-    public class StreetBasedOn {
+    public static class StreetBasedOn {
 
         /**
          * @return street name based on a surname.

@@ -8,9 +8,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static service.Randomizer.getRandomValue;
 import static random.date.Date.DateKey.DAY;
 import static random.date.Date.DateKey.MONTH;
+import static service.Randomizer.getRandomValue;
 
 public class Date {
 
@@ -47,8 +47,8 @@ public class Date {
      * Default setting useful for generating dates of birth
      * @return random LocalDate in dd-MM-yyyy format between 01-01-1900 and 18 years ago
      */
-    public LocalDate randomDate() {
-        return randomDate(START_DATE, END_DATE);
+    public LocalDate random() {
+        return between(START_DATE, END_DATE);
     }
 
     /**
@@ -56,7 +56,7 @@ public class Date {
      * @param end end date in dd-MM-yyyy format
      * @return random LocalDate in dd-MM-yyyy format between given start and end dates
      */
-    public LocalDate randomDate(String start, String end) {
+    public LocalDate between(String start, String end) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DD_MM_YYYY);
         LocalDate startDate = LocalDate.parse(start, formatter);
         LocalDate endDate = LocalDate.parse(end, formatter);

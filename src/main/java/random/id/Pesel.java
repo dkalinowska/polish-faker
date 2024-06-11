@@ -41,7 +41,7 @@ public class Pesel {
 
     private String getRandomPesel(Sex sex) {
         StringBuilder pesel = new StringBuilder();
-        LocalDate date = randomDate.randomDate();
+        LocalDate date = randomDate.random();
 
         pesel.append(String.format("%02d", date.getYear() % 100));
         pesel.append(getMonth(date));

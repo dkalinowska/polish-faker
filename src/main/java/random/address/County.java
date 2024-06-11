@@ -42,14 +42,14 @@ public class County {
         return new CountyFromVoivodeship();
     }
     
-    private String getRandomCounty(Key key) {
+    private static String getRandomCounty(Key key) {
         return getRandomValue(PATH, key);
     }
 
     /**
      * This class provides methods for generating random county names from a specific voivodeship.
      */
-    public class CountyFromVoivodeship {
+    public static class CountyFromVoivodeship {
 
         /**
          * @return random county name from dolnośląskie voivodeship.

@@ -1,0 +1,9 @@
+word:
+  plant:
+    flower: [ róża, tulipan, stokrotka, słonecznik, narcyz, fiołek, konwalia, chryzantema, mak, goździk, orchidea, lilia, hiacynt, irys, peonia, magnolia, pelargonia, bratki, gerbera, hibiskus ]
+    tree: [ dąb, sosna, świerk, brzoza, topola, jesion, klon, buk, wiąz, orzech, jodła, modrzew, grab, jabłoń, czereśnia, grusza, lipa, kasztanowiec, wierzba, olcha ]
+    shrub: [ jałowiec, agrest, porzeczka, malina, jeżyna, dzika róża, hortensja, berberys, forsycja, lilak, kalina, bez, bukszpan, wrzos, cyprysik, lawenda, tamaryszek, żywotnik, trzmielina, azalia ]
+    grass: [ trzcina, bambus, trawa, owies, jęczmień, pszenica, żyto, kukurydza, ryż, perz, mietlica, kostrzewa, tymotka, wiechlina, mozga, stokłosa, koniczyna, rdest, proso, lucerna ]
+    fern: [ orlica, narecznica, pióropusznik, paprotnik, zanokcica, języcznik, długosz, podrzeń, wietlica, nerecznica samcza, pióropusznik strusi, zachylnik, ciemnotka, zanokcica skalna, środkowa ]
+    moss: [ torfowiec, widłoząb, gajnik, płonnik, mech wodny, rokiet, krzywoszyj, złocistka, chrobotek, cienik, brodawkowiec, paprotka zwyczajna, płonnik pospolity, widłoząb zielony, gajnik lśniący ]
+    algae: [ chlorella, morszczyn, listownica, wodorost, krasnorost, brunatnica, zielenica, wakame, spirulina, chlorella, agar-agar, nori, sałata morska, ulwa, koralina, porphyra, eucheuma, gracilaria, sargassum, laminaria ]
